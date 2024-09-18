@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gitam University Attendance Calculator</h1>
+        <form id="attendanceForm">
+            <!-- Semester Start and End Date -->
+            <label for="startDate">Semester Start Date:</label>
+            <input type="date" id="startDate" name="startDate" required>
+            
+            <label for="endDate">Semester End Date:</label>
+            <input type="date" id="endDate" name="endDate" required>
+            
+            <!-- Attendance Type (Semester or Mid Term) -->
+            <label for="calcType">Select Attendance Calculation For:</label>
+            <select id="calcType" name="calcType" required>
+                <option value="semester">End of Semester</option>
+                <option value="midterm">Mid Term</option>
+            </select>
+            
+            <!-- Mid Term Date (Hidden initially) -->
+            <div id="midtermDateContainer" style="display: none;">
+                <label for="midTermDate">Mid Term Date:</label>
+                <input type="date" id="midTermDate" name="midTermDate">
+            </div>
+            
+            <!-- Current Date -->
+            <label for="currentDate">Current Date:</label>
+            <input type="date" id="currentDate" name="currentDate" required>
+            
+            <!-- Current Attendance Percentage -->
+            <label for="presentPercent">Current Present Percentage (%):</label>
+            <input type="number" id="presentPercent" name="presentPercent" min="0" max="100" required>
+            
+            <!-- Classes Per Week -->
+            <label for="classesPerWeek">Classes Per Week (calculate according to your timetable from Monday to Friday):</label>
+            <input type="number" id="classesPerWeek" name="classesPerWeek" min="1" max="35" required>
+            
+            <button type="button" onclick="calculateAttendance()">Calculate Attendance</button>
+        </form>
+        
+        <!-- Output Display -->
+        <div class="output">
+            <h2>Expected Attendance</h2>
+            <p id="attendanceOutput">Your attendance will be displayed here.</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
